@@ -7,7 +7,7 @@ const port = env.port || 3000;
 
 (async () => {
     try {
-        await connect(env.db_uri);
+        // await connect(env.db_uri);
         app.listen(port, () => {
             console.log(`serviço "${env.app_name}" iniciado na porta: ${port}`);
         });
