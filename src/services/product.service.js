@@ -15,7 +15,7 @@ export default {
       name: data.name.trim(),
       description: data.description.trim(),
       price: data.price,
-      categorias: data.categorias
+      categories: data.categories
     });
   },
 

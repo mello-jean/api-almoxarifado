@@ -4,7 +4,7 @@ import createError from '../utils/app-error.js';
 
 function ensureValidPayload({ productId, type, quantity }) {
   if (!productId) throw createError('Produto é obrigatório.', 400);
-  if (!type || ['ENTRADA', 'SAIDA'].indexOf(type) === -1 ) throw createError('Tipo é inválido.', 400);
+  if (!type || ['IN', 'OUT'].indexOf(type) === -1 ) throw createError('Tipo é inválido.', 400);
   if (!quantity || quantity <= 0) throw createError('Quantidade inválida.', 400);
 }
 
@@ -12,11 +12,11 @@ export default {
   async createStockMovement(data, _userId) {
     ensureValidPayload(data);
     const product = await repoProduct.findById(data.productId);
-    if (!product) throw createError('Produto não cadastrado.', 409);    
+    if (!product) throw createError('Produto não cadastrado.', 409);
 
     let newStock;
 
-    if (data.type === 'SAIDA') {
+    if (data.type === 'OUT') {
       newStock = product.stock - data.quantity;
     } else {
       newStock = product.stock + data.quantity;
