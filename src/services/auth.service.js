@@ -27,7 +27,9 @@ export default {
         const token = createToken({
             id: user.id,
             email: user.email,
-            perfil: user.perfil
+            roles: [
+                user.role
+            ]
         });
 
         return { user, token };

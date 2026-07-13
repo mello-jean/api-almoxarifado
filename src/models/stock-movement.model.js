@@ -6,7 +6,7 @@ const StockMovementSchema = new mongoose.Schema({
     userId: { type: Types.ObjectId, required: true, ref:'User' },
     type: {
         type: String,
-        enum: ['ENTRADA', 'SAIDA'],
+        enum: ['IN', 'OUT'],
         required: true,
         uppercase: true,
         trim: true
