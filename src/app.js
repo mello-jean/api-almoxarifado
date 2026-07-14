@@ -11,6 +11,7 @@ import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import productRoutes from './routes/product.routes.js';
 import stockMovementRoutes from './routes/stock-movement.routes.js';
+import reportRoutes from './routes/report.routes.js';
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api', authRoutes);
 
 app.use('/api', authMiddleware, productRoutes);
 app.use('/api', authMiddleware, stockMovementRoutes);
+app.use('/api', authMiddleware, reportRoutes);
 
 // tratamento de erro
 app.use(errorMiddleware);
